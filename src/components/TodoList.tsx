@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { TodoApi } from "../api/todoApi"
+import TodoItem from "./TodoItem"
 
 const TodoList = () => {
     const [ todos, setTodos ] = useState([])
@@ -19,7 +20,16 @@ const TodoList = () => {
         loadData()
     }, [])
 
-    return <></>
+    return (
+        <div>
+            <TodoItem serial={1} todo={{
+                userId: 1,
+                id: 1,
+                title: "delectus aut autem",    
+                completed: true
+            }} />
+        </div>
+    )
 }
 
 export default TodoList

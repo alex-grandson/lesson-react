@@ -13,11 +13,9 @@ const Index = () => (
   <Container height="100vh">
     <DarkModeSwitch />
     <Hero title='Список дел' />
-    <Main>
     
       <TodoList />
       
-    </Main>
 
     <Footer>
       <Text>Next ❤️ Chakra</Text>
