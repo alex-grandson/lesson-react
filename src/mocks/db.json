@@ -1,22 +1,42 @@
 {
   "todos": [
     {
-      "userId": 1,
-      "id": 1,
-      "title": "Купить хлеб",
-      "completed": false
-    },
-    {
-      "userId": 1,
+      "userId": 2,
       "id": 2,
-      "title": "Купить велосипед",
+      "title": "для юзера 2",
       "completed": false
     },
     {
-      "userId": 1,
-      "title": "bgirg",
+      "userId": 3,
+      "title": "я третий",
       "completed": false,
       "isDeleted": false,
+      "id": 3
+    },
+    {
+      "userId": 3,
+      "title": "але ну че там с деньгами",
+      "completed": false,
+      "isDeleted": false,
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Alexey",
+      "email": "a@mail.ru",
+      "password": "$2a$10$KaOKD5GQ5rAUbrS4NG/lmu3e7AxcS0N2QEKRMo5faLrgQupNFUjSu"
+    },
+    {
+      "id": 2,
+      "name": "Kirill",
+      "email": "k@gmail.ru",
+      "password": "$2a$10$KaOKD5GQ5rAUbrS4NG/lmu3e7AxcS0N2QEKRMo5faLrgQupNFUjSu"
+    },
+    {
+      "email": "b@mail.ru",
+      "password": "$2a$10$KaOKD5GQ5rAUbrS4NG/lmu3e7AxcS0N2QEKRMo5faLrgQupNFUjSu",
       "id": 3
     }
   ]

@@ -9,17 +9,20 @@ import {
   InputGroup,
   InputRightElement,
 } from '@chakra-ui/react'
+import { observer } from 'mobx-react-lite'
 import { useEffect, useState } from 'react'
 import { TodoApi } from '../api/todoApi'
+import UserStore from '../store/UserStore'
 import { Todo } from '../types/Todo'
 import TodoItem from './TodoItem'
 
 const TodoList = () => {
   const [todos, setTodos] = useState([] as Todo[])
   const [newTodo, setNewTodo] = useState('')
+  const userId = UserStore.user?.user?.id
 
   const loadData = () => {
-    TodoApi.getTodos()
+    TodoApi.getTodos(userId)
       .then((response) => {
         console.log(response.data)
         setTodos(
@@ -62,12 +65,16 @@ const TodoList = () => {
   }
 
   useEffect(() => {
-    if (todos.length == 0) {
+    if (userId != undefined && todos.length == 0) {
       loadData()
     }
   }, [])
 
   useEffect(() => {}, [todos])
+
+  if (userId == undefined) {
+    return <Box mt={5}>Вы не вошли</Box>
+  }
 
   return (
     <Flex flexDirection={'column'} gap={5}>
@@ -90,7 +97,7 @@ const TodoList = () => {
                 variant={'ghost'}
                 onClick={() => {
                   const newTodoItem: Todo = {
-                    userId: 1,
+                    userId: userId,
                     title: newTodo,
                     completed: false,
                     isDeleted: false,
@@ -121,4 +128,4 @@ const TodoList = () => {
   )
 }
 
-export default TodoList
+export default observer(TodoList)
